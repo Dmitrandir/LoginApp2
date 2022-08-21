@@ -11,7 +11,7 @@
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="LoginVC" id="BYZ-38-t0r" customClass="ViewController" customModule="LoginApp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="LoginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="LoginApp2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,6 +38,10 @@
                                         <rect key="frame" x="0.0" y="160" width="280" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Log In"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="9QS-m2-4J3"/>
+                                            <segue destination="c5W-iy-VjV" kind="showDetail" id="qnt-OO-Mum"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="TVE-H8-Wmy">
                                         <rect key="frame" x="0.0" y="221" width="280" height="65"/>
@@ -46,11 +50,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="99.5" height="65"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot User Name?"/>
+                                                <connections>
+                                                    <action selector="forgotUserNamePressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="dpr-eI-r3A"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkS-Rq-0c7">
                                                 <rect key="frame" x="180.5" y="0.0" width="99.5" height="65"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
+                                                <connections>
+                                                    <action selector="forgotPasswordRename" destination="BYZ-38-t0r" eventType="touchUpInside" id="aH4-PD-sUk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -65,6 +75,10 @@
                             <constraint firstItem="did-yr-LdF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yie-0P-MqC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginTF" destination="53X-eC-j9R" id="f6V-s0-lU4"/>
+                        <outlet property="passwordTF" destination="wqc-rI-WQF" id="EHc-Pc-EAl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,7 +89,7 @@
             <objects>
                 <viewController title="WelcomeVC" id="ISK-wm-qeT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R2i-wW-2Aq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYA-Pq-KFJ">
@@ -113,11 +127,11 @@
             <objects>
                 <viewController id="kVz-as-XHn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u2X-Dz-Kpo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dga-d5-FN5">
-                                <rect key="frame" x="118" y="260" width="86" height="31"/>
+                                <rect key="frame" x="118" y="272" width="86" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="More Info"/>
                             </button>
@@ -184,9 +198,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Hzm-Tz-Uz8">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="c5W-iy-VjV" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="c5W-iy-VjV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4qC-Si-Nee">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -206,7 +221,7 @@
                     <tabBarItem key="tabBarItem" title="User" image="person" catalog="system" id="jj7-Pc-Vcs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UcK-PT-MeG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
